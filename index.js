@@ -23,8 +23,11 @@ app.all("*", async (req, res, next) => {
 
 app.get('/home/menu', async (req, res) => {
     const [err_parse, success_parse] = await transformPromise(verToken(req.headers.authorization));
-    console.log('token_parse: ',success_parse, err_parse);
-    res.send(menuData);
+    console.log('token_parse: ',err_parse, success_parse);
+    if(err_parse){
+        return res.status(401).send(err_parse);
+    }
+    return res.send(menuData);
 });
 
 app.post('/login', async (req, res) => {

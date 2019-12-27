@@ -1,12 +1,12 @@
 const jwt = require('jsonwebtoken');
-const signkey = 'mes_qdhd_mobile_xhykjyxgs';
+const signkey = 'abcdefg';
 
 exports.setToken = (username,password) => {
     return new Promise((resolve, reject) => {
         jwt.sign({
             name:username,
             pass:password
-        },signkey,{ expiresIn:'0.01h' },(err, token) => {
+        },signkey,{ expiresIn:'360' },(err, token) => {
             if (!err) {
                 resolve({token:token,msg:'生成token'});
             }
@@ -16,6 +16,7 @@ exports.setToken = (username,password) => {
 };
 
 exports.verToken = (token) => {
+    console.log('abtain token:', token);
     return new Promise((resolve, reject) => {
         jwt.verify(token,signkey,(err,user) => {
             if (!err) {
