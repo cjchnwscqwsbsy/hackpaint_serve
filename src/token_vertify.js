@@ -6,7 +6,7 @@ exports.setToken = (username,password) => {
         jwt.sign({
             name:username,
             pass:password
-        },signkey,{ expiresIn:'360' },(err, token) => {
+        },signkey,{ expiresIn:'3600' },(err, token) => {
             if (!err) {
                 resolve({token:token,msg:'生成token'});
             }

@@ -3,6 +3,7 @@
 ### Question
 ##### req.body在未使用body-parser时为空
 ##### async&await如何优雅的处理catch
+##### jsonwebtoken expiresIn字段设置为360时很快过期
 
 ### Target
 ##### 文件操作
