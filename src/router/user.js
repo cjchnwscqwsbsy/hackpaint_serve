@@ -1,6 +1,5 @@
 const express = require('express');
-const { menuData } = require('../database/menu');
-const { setToken, verToken } =  require('../token_vertify');
+const { setToken } =  require('../token_vertify');
 const { writeData } = require('../file');
 const { transformPromise } = require('../lib/transformpromise');
 
@@ -18,4 +17,4 @@ router.post('/login', async (req, res) => {
     return res.send(cur_token);
 });
 
-exports.userRouter = router;
+module.exports = router;
