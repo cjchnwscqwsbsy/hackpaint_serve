@@ -16,9 +16,10 @@ exports.setToken = (username,password) => {
 };
 
 exports.verToken = (token) => {
-    console.log('abtain token:', token);
     return new Promise((resolve, reject) => {
         jwt.verify(token,signkey,(err,user) => {
+            // console.log('error: ',err)
+            // console.log('success: ',user)
             if (!err) {
                 resolve({msg:'解析token',data:user});
             }

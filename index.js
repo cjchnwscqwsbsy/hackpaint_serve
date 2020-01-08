@@ -18,12 +18,20 @@ app.all("*", async (req, res, next) => {
 });
 
 app.use('/app', async (req, res, next) => {
-    console.log('uaidsyhfuj89798789798')
-    const [err_parse, success_parse] = await transformPromise(verToken(req.headers.authorization));
-    if(err_parse){
-        return res.status(401).send(err_parse);
-    }
-    return next();
+    // const [err_parse, success_parse] = await transformPromise(verToken(req.headers.authorization));
+    // if(err_parse){
+    //     return res.status(401).send(err_parse);
+    // }
+    console.log('request:',req.headers);
+    // verToken(req.headers.authorization).then(ret => {
+    //     console.log('authorization_success : ',ret)
+    // }).catch(err => {
+    //     console.log('authorization_error : ',err)
+
+
+    // });
+
+    // return next();
 
 });
 
