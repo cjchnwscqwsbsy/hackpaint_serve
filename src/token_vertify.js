@@ -8,9 +8,9 @@ exports.setToken = (username,password) => {
             pass:password
         },signkey,{ expiresIn:'3600' },(err, token) => {
             if (!err) {
-                resolve({token:token,msg:'生成token'});
+                resolve({token:token,msg:'生成token',code:200});
             }
-            reject({msg:`生成token失败，${err}`});
+            reject({msg:`生成token失败，${err}`,code:500});
         });
     });
 };
@@ -18,12 +18,10 @@ exports.setToken = (username,password) => {
 exports.verToken = (token) => {
     return new Promise((resolve, reject) => {
         jwt.verify(token,signkey,(err,user) => {
-            // console.log('error: ',err)
-            // console.log('success: ',user)
             if (!err) {
-                resolve({msg:'解析token',data:user});
+                resolve({msg:'解析token',data:user,code:200});
             }
-            reject({msg:`解析token失败， ${err}`});
+            reject({msg:`解析token失败， ${err}`,code:500});
         });
     });
 };
