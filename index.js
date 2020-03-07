@@ -8,7 +8,7 @@ const { verToken } =  require('./src/token_vertify');
 const app = express();
 app.use(bodyParse.json());
 app.use(bodyParse.urlencoded({extended:true}));
-app.use(express.static(path.join(__dirname, 'upload_files')));
+app.use('/',express.static(path.join(__dirname, 'upload_files')));
 
 app.all("*", async (req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
